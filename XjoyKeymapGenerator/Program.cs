@@ -127,13 +127,13 @@ namespace XjoyKeymapGenerator
         static void OutputXboxKeys()
         {
             for (int i = 0; i < 18; i++)
-                Console.WriteLine($"{i:DD}  {(XboxKey)i}");
+                Console.WriteLine($"{(i + 1):D2}  {(XboxKey)i}");
         }
 
         static void OutputResult(List<string> lines)
         {
             for (int i = 0; i < 22; i++)
-                Console.WriteLine($"{i:DD}  {lines[i]}");
+                Console.WriteLine($"{(i + 1):D2}  {lines[i]}");
         }
 
         static void SaveFile(List<string> lines)
