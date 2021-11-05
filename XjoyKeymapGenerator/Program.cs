@@ -150,6 +150,7 @@ namespace XjoyKeymapGenerator
         static void SaveFile(List<string> lines)
         {
             StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("# To disable any button, set \"DISABLE\" to the value");
             foreach (var str in lines)
                 stringBuilder.AppendLine(str);
             string result = stringBuilder.ToString();
