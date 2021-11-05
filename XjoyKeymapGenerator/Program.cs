@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,6 +100,16 @@ namespace XjoyKeymapGenerator
         {
             for (int i = 0; i < 22; i++)
                 Console.WriteLine($"{i:DD}  {lines[i]}");
+        }
+
+        static void SaveFile(List<string> lines)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var str in lines)
+                stringBuilder.AppendLine(str);
+            string result = stringBuilder.ToString();
+
+            File.WriteAllText("keymap.yaml", result, Encoding.UTF8);
         }
     }
 }
