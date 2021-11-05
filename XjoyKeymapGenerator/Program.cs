@@ -88,5 +88,17 @@ namespace XjoyKeymapGenerator
             _keymap[JoyconKey.R_PLUS] = XboxKey.XUSB_GAMEPAD_START;
             _keymap[JoyconKey.R_STICK] = XboxKey.XUSB_GAMEPAD_RIGHT_THUMB;
         }
+
+        static void OutputXboxKeys()
+        {
+            for (int i = 0; i < 18; i++)
+                Console.WriteLine($"{i:DD}  {(XboxKey)i}");
+        }
+
+        static void OutputResult(List<string> lines)
+        {
+            for (int i = 0; i < 22; i++)
+                Console.WriteLine($"{i:DD}  {lines[i]}");
+        }
     }
 }
