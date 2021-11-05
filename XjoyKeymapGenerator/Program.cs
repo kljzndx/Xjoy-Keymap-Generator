@@ -65,10 +65,8 @@ namespace XjoyKeymapGenerator
 
             while (true)
             {
-                Console.WriteLine("----------- Result ------------");
                 List<string> mapLines = _keymaps.Select(p => $"{p.Key}: {p.Value}").ToList();
                 OutputResult(mapLines);
-                Console.WriteLine("----------- Result ------------");
 
                 Console.WriteLine("1  Edit");
                 Console.WriteLine("2  Save");
@@ -126,14 +124,18 @@ namespace XjoyKeymapGenerator
 
         static void OutputXboxKeys()
         {
+            Console.WriteLine("----------- Xbox Buttons ------------");
             for (int i = 0; i < 18; i++)
                 Console.WriteLine($"{(i + 1):D2}  {(XboxKey)i}");
+            Console.WriteLine("----------- Xbox Buttons ------------");
         }
 
         static void OutputResult(List<string> lines)
         {
+            Console.WriteLine("----------- Result ------------");
             for (int i = 0; i < 22; i++)
                 Console.WriteLine($"{(i + 1):D2}  {lines[i]}");
+            Console.WriteLine("----------- Result ------------");
         }
 
         static void SaveFile(List<string> lines)
