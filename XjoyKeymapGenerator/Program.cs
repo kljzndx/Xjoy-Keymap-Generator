@@ -77,14 +77,22 @@ namespace XjoyKeymapGenerator
                 {
                     Console.Write("Which line do you want to edit (1 ~ 22): ");
                     input = Console.ReadLine();
-                    int jcId = int.Parse(input) - 1;
+                    int jcId;
+
+                    if (int.TryParse(input, out jcId)) jcId -= 1;
+                    else continue;
 
                     OutputXboxKeys();
                     Console.Write("Which value do you want to set (1 ~ 18): ");
                     input = Console.ReadLine();
-                    int xboxId = int.Parse(input) - 1;
+                    int xboxId;
 
-                    _keymaps[(JoyconKey)jcId] = (XboxKey)xboxId;
+                    if (int.TryParse(input, out xboxId)) xboxId -= 1;
+                    else continue;
+
+                    if (jcId > 0 && jcId < 22 && xboxId > 0 && xboxId < 18)
+                        _keymaps[(JoyconKey)jcId] = (XboxKey)xboxId;
+
                     continue;
                 }
 
