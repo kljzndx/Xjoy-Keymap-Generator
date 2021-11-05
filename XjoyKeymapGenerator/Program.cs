@@ -61,7 +61,41 @@ namespace XjoyKeymapGenerator
 
         static void Main(string[] args)
         {
+            InitKeymap();
 
+            while (true)
+            {
+                Console.WriteLine("----------- Result ------------");
+                List<string> mapLines = _keymaps.Select(p => $"{p.Key}: {p.Value}").ToList();
+                OutputResult(mapLines);
+                Console.WriteLine("----------- Result ------------");
+
+                Console.WriteLine("1  Edit");
+                Console.WriteLine("2  Save");
+                Console.Write("Which command do you want to execute (1 or 2): ");
+                string input = Console.ReadLine();
+
+                if (input == "1")
+                {
+                    Console.Write("Which line do you want to edit (1 ~ 22): ");
+                    input = Console.ReadLine();
+                    int jcId = int.Parse(input) - 1;
+
+                    OutputXboxKeys();
+                    Console.Write("Which value do you want to set (1 ~ 18): ");
+                    input = Console.ReadLine();
+                    int xboxId = int.Parse(input) - 1;
+
+                    _keymaps[(JoyconKey)jcId] = (XboxKey)xboxId;
+                    continue;
+                }
+
+                if (input == "2")
+                {
+                    SaveFile(mapLines);
+                    break;
+                }
+            }
         }
 
         static void InitKeymap()
