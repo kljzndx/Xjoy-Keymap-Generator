@@ -99,6 +99,7 @@ namespace XjoyKeymapGenerator
                 if (input == "2")
                 {
                     SaveFile(mapLines);
+                    Console.ReadLine();
                     break;
                 }
             }
@@ -154,6 +155,7 @@ namespace XjoyKeymapGenerator
             string result = stringBuilder.ToString();
 
             File.WriteAllText("keymap.yaml", result, Encoding.UTF8);
+            Console.WriteLine("Save successfully");
         }
     }
 }
