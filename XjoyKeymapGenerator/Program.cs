@@ -56,9 +56,37 @@ namespace XjoyKeymapGenerator
 
     internal class Program
     {
+        static Dictionary<JoyconKey, XboxKey> _keymap = new Dictionary<JoyconKey, XboxKey>();
+
         static void Main(string[] args)
         {
 
+        }
+
+        static void InitKeymap()
+        {
+            _keymap[JoyconKey.L_DPAD_LEFT] = XboxKey.XUSB_GAMEPAD_DPAD_LEFT;
+            _keymap[JoyconKey.L_DPAD_DOWN] = XboxKey.XUSB_GAMEPAD_DPAD_DOWN;
+            _keymap[JoyconKey.L_DPAD_UP] = XboxKey.XUSB_GAMEPAD_DPAD_UP;
+            _keymap[JoyconKey.L_DPAD_RIGHT] = XboxKey.XUSB_GAMEPAD_DPAD_RIGHT;
+            _keymap[JoyconKey.L_DPAD_SL] = XboxKey.DISABLE;
+            _keymap[JoyconKey.L_DPAD_SR] = XboxKey.DISABLE;
+            _keymap[JoyconKey.L_SHOULDER] = XboxKey.XUSB_GAMEPAD_LEFT_SHOULDER;
+            _keymap[JoyconKey.L_TRIGGER] = XboxKey.XUSB_GAMEPAD_LEFT_TRIGGER;
+            _keymap[JoyconKey.L_CAPTURE] = XboxKey.XUSB_GAMEPAD_BACK;
+            _keymap[JoyconKey.L_MINUS] = XboxKey.XUSB_GAMEPAD_BACK;
+            _keymap[JoyconKey.L_STICK] = XboxKey.XUSB_GAMEPAD_LEFT_THUMB;
+            _keymap[JoyconKey.R_BUT_A] = XboxKey.XUSB_GAMEPAD_B;
+            _keymap[JoyconKey.R_BUT_B] = XboxKey.XUSB_GAMEPAD_A;
+            _keymap[JoyconKey.R_BUT_X] = XboxKey.XUSB_GAMEPAD_Y;
+            _keymap[JoyconKey.R_BUT_Y] = XboxKey.XUSB_GAMEPAD_X;
+            _keymap[JoyconKey.R_BUT_SL] = XboxKey.DISABLE;
+            _keymap[JoyconKey.R_BUT_SR] = XboxKey.DISABLE;
+            _keymap[JoyconKey.R_SHOULDER] = XboxKey.XUSB_GAMEPAD_RIGHT_SHOULDER;
+            _keymap[JoyconKey.R_TRIGGER] = XboxKey.XUSB_GAMEPAD_RIGHT_TRIGGER;
+            _keymap[JoyconKey.R_HOME] = XboxKey.XUSB_GAMEPAD_START;
+            _keymap[JoyconKey.R_PLUS] = XboxKey.XUSB_GAMEPAD_START;
+            _keymap[JoyconKey.R_STICK] = XboxKey.XUSB_GAMEPAD_RIGHT_THUMB;
         }
     }
 }
