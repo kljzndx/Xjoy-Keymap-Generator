@@ -87,7 +87,7 @@ namespace XjoyKeymapGenerator
                     else continue;
 
                     OutputXboxKeys();
-                    Console.Write("Which value do you want to set (1 ~ 18): ");
+                    Console.Write("Which button do you want to set (1 ~ 18): ");
                     input = Console.ReadLine();
                     int xboxId;
 
