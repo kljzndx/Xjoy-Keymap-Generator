@@ -55,6 +55,31 @@ namespace XjoyKeymapGenerator
         XUSB_GAMEPAD_GUIDE,
     }
 
+    enum JoyconButton
+    {
+        SL_on_left_joycon = 4,
+        SR_on_left_joycon = 5,
+        L = 6,
+        ZL = 7,
+        Analog_button_on_left_joycon = 10,
+        SL_on_right_joycon = 15,
+        SR_on_right_joycon = 16,
+        R = 17,
+        ZR = 18,
+        Analog_button_on_right_joycon = 21,
+    }
+
+    enum XboxButton
+    {
+        LB = 9,
+        RB = 10,
+        LT = 11,
+        RT = 12,
+        Left_analog_button = 13,
+        Right_analog_button = 14,
+        Xbox_logo_button = 17,
+    }
+
     internal class Program
     {
         static Dictionary<JoyconKey, XboxKey> _keymaps = new Dictionary<JoyconKey, XboxKey>();
