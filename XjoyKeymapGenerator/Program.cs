@@ -197,7 +197,6 @@ namespace XjoyKeymapGenerator
                     table.AddRow(((JoyconKey)i).ToString(), "");
 
             table.Write(Format.MarkDown);
-            Console.WriteLine();
         }
 
         static void OutputXboxButtonNames()
@@ -212,7 +211,6 @@ namespace XjoyKeymapGenerator
                     table.AddRow(((XboxKey)i).ToString(), "");
 
             table.Write(Format.MarkDown);
-            Console.WriteLine();
         }
 
         static void OutputXboxKeys()
