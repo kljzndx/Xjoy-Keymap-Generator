@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleTables;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -83,6 +85,8 @@ namespace XjoyKeymapGenerator
     internal class Program
     {
         static Dictionary<JoyconKey, XboxKey> _keymaps = new Dictionary<JoyconKey, XboxKey>();
+        static Dictionary<int, JoyconButton> _jcBtnMaps = new Dictionary<int, JoyconButton>();
+        static Dictionary<int, XboxButton> _xboxBtnMaps = new Dictionary<int, XboxButton>();
 
         static void Main(string[] args)
         {
@@ -158,6 +162,15 @@ namespace XjoyKeymapGenerator
             _keymaps[JoyconKey.R_HOME] = XboxKey.XUSB_GAMEPAD_START;
             _keymaps[JoyconKey.R_PLUS] = XboxKey.XUSB_GAMEPAD_START;
             _keymaps[JoyconKey.R_STICK] = XboxKey.XUSB_GAMEPAD_RIGHT_THUMB;
+        }
+
+        static void InitButtonMaps()
+        {
+            foreach (var item in Enum.GetValues(typeof(JoyconButton)))
+                _jcBtnMaps[(int)item] = (JoyconButton)item;
+
+            foreach (var item in Enum.GetValues(typeof(XboxButton)))
+                _xboxBtnMaps[(int)item] = (XboxButton)item;
         }
 
         static void OutputXboxKeys()
