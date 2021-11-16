@@ -173,6 +173,36 @@ namespace XjoyKeymapGenerator
                 _xboxBtnMaps[(int)item] = (XboxButton)item;
         }
 
+        static void OutputJoyconButtonNames()
+        {
+            Console.WriteLine("|------------------- JoyCon -------------------|");
+            ConsoleTable table = new ConsoleTable("Key", "Button name");
+
+            for (int i = 0; i < 22; i++)
+                if (_jcBtnMaps.ContainsKey(i))
+                    table.AddRow(((JoyconKey)i).ToString(), _jcBtnMaps[i].ToString());
+                else
+                    table.AddRow(((JoyconKey)i).ToString(), "");
+
+            table.Write(Format.MarkDown);
+            Console.WriteLine();
+        }
+
+        static void OutputXboxButtonNames()
+        {
+            Console.WriteLine("|---------------------- Xbox -----------------------|");
+            ConsoleTable table = new ConsoleTable("Key", "Button name");
+
+            for (int i = 0; i < 18; i++)
+                if (_xboxBtnMaps.ContainsKey(i))
+                    table.AddRow(((XboxKey)i).ToString(), _xboxBtnMaps[i].ToString());
+                else
+                    table.AddRow(((XboxKey)i).ToString(), "");
+
+            table.Write(Format.MarkDown);
+            Console.WriteLine();
+        }
+
         static void OutputXboxKeys()
         {
             Console.WriteLine("----------- Xbox Buttons ------------");
