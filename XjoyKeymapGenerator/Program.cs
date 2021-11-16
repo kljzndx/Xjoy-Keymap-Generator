@@ -198,14 +198,6 @@ namespace XjoyKeymapGenerator
             table.Write(Format.MarkDown);
         }
 
-        static void OutputXboxKeys()
-        {
-            Console.WriteLine("----------- Xbox Buttons ------------");
-            for (int i = 0; i < 18; i++)
-                Console.WriteLine($"{(i + 1):D2}  {(XboxKey)i}");
-            Console.WriteLine("----------- Xbox Buttons ------------");
-        }
-
         static void OutputResult(List<string> lines)
         {
             Console.WriteLine("----------- Result ------------");
