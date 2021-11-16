@@ -97,16 +97,25 @@ namespace XjoyKeymapGenerator
             InitKeymap();
             InitButtonMaps();
 
+            string input;
+
+            ConsoleTable commandTable = new ConsoleTable("ID", "Name");
+            commandTable.AddRow("01", "Edit");
+            commandTable.AddRow("02", "Save");
+
             while (true)
             {
                 OutputResult();
 
-                Console.WriteLine("1  Edit");
-                Console.WriteLine("2  Save");
-                Console.Write("Which command do you want to execute (1 or 2): ");
-                string input = Console.ReadLine();
+                Console.WriteLine("|- Command -|");
+                commandTable.Write(Format.MarkDown);
 
-                if (input == "1")
+                Console.Write("Which command do you want to execute (1 or 2): ");
+                input = Console.ReadLine();
+                int commandId;
+                int.TryParse(input, out commandId);
+
+                if (commandId == 1)
                 {
                     Console.WriteLine();
                     OutputJoyconButtonNames();
@@ -131,7 +140,7 @@ namespace XjoyKeymapGenerator
                     continue;
                 }
 
-                if (input == "2")
+                if (commandId == 2)
                 {
                     SaveFile();
                     Console.ReadLine();
@@ -203,7 +212,7 @@ namespace XjoyKeymapGenerator
             ConsoleTable table = new ConsoleTable("ID", "JoyCon button key", "Xbox button key");
 
             for (int i = 0; i < 22; i++)
-                table.AddRow((i+1).ToString("D2"), ((JoyconKey)i).ToString(), _keymaps[(JoyconKey)i]);
+                table.AddRow((i + 1).ToString("D2"), ((JoyconKey)i).ToString(), _keymaps[(JoyconKey)i]);
 
             table.Write(Format.MarkDown);
         }
