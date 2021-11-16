@@ -111,7 +111,7 @@ namespace XjoyKeymapGenerator
                 {
                     Console.WriteLine();
                     OutputJoyconButtonNames();
-                    Console.Write("Which line do you want to edit (1 ~ 22): ");
+                    Console.Write("Which button do you want to edit (1 ~ 22): ");
                     input = Console.ReadLine();
                     int jcId;
 
