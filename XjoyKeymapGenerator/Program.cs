@@ -99,8 +99,7 @@ namespace XjoyKeymapGenerator
 
             while (true)
             {
-                List<string> mapLines = _keymaps.Select(p => $"{p.Key}: {p.Value}").ToList();
-                OutputResult(mapLines);
+                OutputResult();
 
                 Console.WriteLine("1  Edit");
                 Console.WriteLine("2  Save");
@@ -134,7 +133,7 @@ namespace XjoyKeymapGenerator
 
                 if (input == "2")
                 {
-                    SaveFile(mapLines);
+                    SaveFile();
                     Console.ReadLine();
                     break;
                 }
@@ -198,19 +197,22 @@ namespace XjoyKeymapGenerator
             table.Write(Format.MarkDown);
         }
 
-        static void OutputResult(List<string> lines)
+        static void OutputResult()
         {
-            Console.WriteLine("----------- Result ------------");
+            Console.WriteLine("|----------------------- Result -----------------------|");
+            ConsoleTable table = new ConsoleTable("ID", "JoyCon button key", "Xbox button key");
+
             for (int i = 0; i < 22; i++)
-                Console.WriteLine($"{(i + 1):D2}  {lines[i]}");
-            Console.WriteLine("----------- Result ------------");
+                table.AddRow((i+1).ToString("D2"), ((JoyconKey)i).ToString(), _keymaps[(JoyconKey)i]);
+
+            table.Write(Format.MarkDown);
         }
 
-        static void SaveFile(List<string> lines)
+        static void SaveFile()
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("# To disable any button, set \"DISABLE\" to the value");
-            foreach (var str in lines)
+            foreach (var str in _keymaps.Select(p => $"{p.Key}: {p.Value}"))
                 stringBuilder.AppendLine(str);
             string result = stringBuilder.ToString();
 
