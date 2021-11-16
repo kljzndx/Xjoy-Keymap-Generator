@@ -95,30 +95,18 @@ namespace XjoyKeymapGenerator
             Console.WriteLine();
 
             InitKeymap();
-            InitButtonMaps();
 
             while (true)
             {
                 List<string> mapLines = _keymaps.Select(p => $"{p.Key}: {p.Value}").ToList();
                 OutputResult(mapLines);
 
-                Console.WriteLine("1   Help");
-                Console.WriteLine("2   Edit");
-                Console.WriteLine("3   Save");
-                Console.Write("Which command do you want to execute (1 ~ 3): ");
+                Console.WriteLine("1  Edit");
+                Console.WriteLine("2  Save");
+                Console.Write("Which command do you want to execute (1 or 2): ");
                 string input = Console.ReadLine();
 
                 if (input == "1")
-                {
-                    OutputJoyconButtonNames();
-                    OutputXboxButtonNames();
-
-                    Console.Write("Press enter to exit");
-                    Console.ReadLine();
-                    continue;
-                }
-
-                if (input == "2")
                 {
                     Console.Write("Which line do you want to edit (1 ~ 22): ");
                     input = Console.ReadLine();
@@ -141,7 +129,7 @@ namespace XjoyKeymapGenerator
                     continue;
                 }
 
-                if (input == "3")
+                if (input == "2")
                 {
                     SaveFile(mapLines);
                     Console.ReadLine();
