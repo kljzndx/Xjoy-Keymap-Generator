@@ -187,22 +187,22 @@ namespace XjoyKeymapGenerator
 
         static void OutputJoyconButtonNames()
         {
-            Console.WriteLine("|------------------- JoyCon -------------------|");
-            ConsoleTable table = new ConsoleTable("Key", "Button name");
+            Console.WriteLine("|--------------------- JoyCon ----------------------|");
+            ConsoleTable table = new ConsoleTable("ID", "Key", "Button name");
 
             for (int i = 0; i < 22; i++)
-                table.AddRow(((JoyconKey)i).ToString(), _jcBtnMaps.ContainsKey(i) ? _jcBtnMaps[i].ToString() : "");
+                table.AddRow((i + 1).ToString("D2"), ((JoyconKey)i).ToString(), _jcBtnMaps.ContainsKey(i) ? _jcBtnMaps[i].ToString() : "");
 
             table.Write(Format.MarkDown);
         }
 
         static void OutputXboxButtonNames()
         {
-            Console.WriteLine("|---------------------- Xbox -----------------------|");
-            ConsoleTable table = new ConsoleTable("Key", "Button name");
+            Console.WriteLine("|------------------------ Xbox --------------------------|");
+            ConsoleTable table = new ConsoleTable("ID", "Key", "Button name");
 
             for (int i = 0; i < 18; i++)
-                table.AddRow(((XboxKey)i).ToString(), _xboxBtnMaps.ContainsKey(i) ? _xboxBtnMaps[i].ToString() : "");
+                table.AddRow((i + 1).ToString("D2"), ((XboxKey)i).ToString(), _xboxBtnMaps.ContainsKey(i) ? _xboxBtnMaps[i].ToString() : "");
 
             table.Write(Format.MarkDown);
         }
