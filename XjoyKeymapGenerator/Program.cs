@@ -191,10 +191,7 @@ namespace XjoyKeymapGenerator
             ConsoleTable table = new ConsoleTable("Key", "Button name");
 
             for (int i = 0; i < 22; i++)
-                if (_jcBtnMaps.ContainsKey(i))
-                    table.AddRow(((JoyconKey)i).ToString(), _jcBtnMaps[i].ToString());
-                else
-                    table.AddRow(((JoyconKey)i).ToString(), "");
+                table.AddRow(((JoyconKey)i).ToString(), _jcBtnMaps.ContainsKey(i) ? _jcBtnMaps[i].ToString() : "");
 
             table.Write(Format.MarkDown);
         }
@@ -205,10 +202,7 @@ namespace XjoyKeymapGenerator
             ConsoleTable table = new ConsoleTable("Key", "Button name");
 
             for (int i = 0; i < 18; i++)
-                if (_xboxBtnMaps.ContainsKey(i))
-                    table.AddRow(((XboxKey)i).ToString(), _xboxBtnMaps[i].ToString());
-                else
-                    table.AddRow(((XboxKey)i).ToString(), "");
+                table.AddRow(((XboxKey)i).ToString(), _xboxBtnMaps.ContainsKey(i) ? _xboxBtnMaps[i].ToString() : "");
 
             table.Write(Format.MarkDown);
         }
