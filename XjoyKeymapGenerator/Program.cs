@@ -95,6 +95,7 @@ namespace XjoyKeymapGenerator
             Console.WriteLine();
 
             InitKeymap();
+            InitButtonMaps();
 
             while (true)
             {
@@ -108,6 +109,8 @@ namespace XjoyKeymapGenerator
 
                 if (input == "1")
                 {
+                    Console.WriteLine();
+                    OutputJoyconButtonNames();
                     Console.Write("Which line do you want to edit (1 ~ 22): ");
                     input = Console.ReadLine();
                     int jcId;
@@ -115,7 +118,7 @@ namespace XjoyKeymapGenerator
                     if (int.TryParse(input, out jcId)) jcId -= 1;
                     else continue;
 
-                    OutputXboxKeys();
+                    OutputXboxButtonNames();
                     Console.Write("Which button do you want to set (1 ~ 18): ");
                     input = Console.ReadLine();
                     int xboxId;
