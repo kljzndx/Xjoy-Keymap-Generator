@@ -90,7 +90,7 @@ namespace XjoyKeymapGenerator
 
         static void Main(string[] args)
         {
-            Console.WriteLine("XJoy keymap file generator v1.2");
+            Console.WriteLine("XJoy keymap file generator v1.2.1");
             Console.WriteLine("Author: kljzndx");
             Console.WriteLine();
 
