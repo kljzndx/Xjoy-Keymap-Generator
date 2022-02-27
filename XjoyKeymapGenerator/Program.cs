@@ -134,7 +134,7 @@ namespace XjoyKeymapGenerator
                     if (int.TryParse(input, out xboxId)) xboxId -= 1;
                     else continue;
 
-                    if (jcId > 0 && jcId < 22 && xboxId > 0 && xboxId < 18)
+                    if (jcId >= 0 && jcId < 22 && xboxId >= 0 && xboxId < 18)
                         _keymaps[(JoyconKey)jcId] = (XboxKey)xboxId;
 
                     continue;
