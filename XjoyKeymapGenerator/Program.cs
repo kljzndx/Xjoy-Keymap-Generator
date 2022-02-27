@@ -136,6 +136,8 @@ namespace XjoyKeymapGenerator
 
                     if (jcId >= 0 && jcId < 22 && xboxId >= 0 && xboxId < 18)
                         _keymaps[(JoyconKey)jcId] = (XboxKey)xboxId;
+                    else
+                        Console.WriteLine("error: Index out of range");
 
                     continue;
                 }
