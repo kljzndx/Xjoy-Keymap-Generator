@@ -58,7 +58,7 @@ namespace XjoyKeymapGenerator
             jcKeyDict["R_HOME"] = "(R) Home";
             jcKeyDict["R_PLUS"] = "(R) Plus";
             jcKeyDict["R_STICK"] = "(R) Stick";
-            JcKeyDictList=jcKeyDict.ToList();
+            JcKeyDictList = jcKeyDict.ToList();
 
             var xboxKeyDict = new Dictionary<string, string>();
             xboxKeyDict["DISABLE"] = "Disable";
