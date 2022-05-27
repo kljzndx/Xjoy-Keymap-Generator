@@ -61,7 +61,7 @@ namespace XjoyKeymapGenerator
             JcKeyDictList=jcKeyDict.ToList();
 
             var xboxKeyDict = new Dictionary<string, string>();
-            xboxKeyDict["DISABLE"] = "DISABLE";
+            xboxKeyDict["DISABLE"] = "Disable";
             xboxKeyDict["XUSB_GAMEPAD_DPAD_LEFT"] = "Left";
             xboxKeyDict["XUSB_GAMEPAD_DPAD_DOWN"] = "Down";
             xboxKeyDict["XUSB_GAMEPAD_DPAD_UP"] = "Up";
