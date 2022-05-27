@@ -116,7 +116,11 @@ namespace XjoyKeymapGenerator
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine("# To disable any button, set \"DISABLE\" to the value");
+            ButtonSettings.ForEach(b => stringBuilder.AppendLine(b.ToYaml()));
+            File.WriteAllText("keymap.yaml", stringBuilder.ToString().Trim(), Encoding.UTF8);
+            MessageBox.Show("Save Successfully");
         }
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
