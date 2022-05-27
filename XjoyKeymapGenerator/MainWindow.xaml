@@ -32,16 +32,26 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal" Margin="4,8">
-            <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Padding" Value="6,4"/>
-                    <Setter Property="Margin" Value="4,0"/>
-                </Style>
-            </StackPanel.Resources>
-            
-            <Button Click="Save_Button_Click">Save</Button>
-            <Button Click="Close_Button_Click">Close</Button>
-        </StackPanel>
+        <Grid Grid.Row="1" Margin="4,8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox BorderThickness="0" VerticalAlignment="Center" Margin="4,0"
+                     IsReadOnly="True" Text="github.com/kljzndx/Xjoy-Keymap-Generator"/>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Padding" Value="6,4"/>
+                        <Setter Property="Margin" Value="4,0"/>
+                    </Style>
+                </StackPanel.Resources>
+
+                <Button Click="Save_Button_Click">Save</Button>
+                <Button Click="Close_Button_Click">Close</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
