@@ -22,10 +22,10 @@ namespace XjoyKeymapGenerator
     {
         public MainWindow()
         {
+            InitKeyAssets();
+
             InitializeComponent();
             this.DataContext = this;
-
-            InitKeyAssets();
         }
 
         public List<KeyValuePair<string, string>> JcKeyDictList { get; set; }
@@ -79,6 +79,7 @@ namespace XjoyKeymapGenerator
             xboxKeyDict["XUSB_GAMEPAD_START"] = "Start";
             xboxKeyDict["XUSB_GAMEPAD_GUIDE"] = "Logo";
             XboxKeyDictList = xboxKeyDict.ToList();
+            this.Resources.Add("XboxKeyDictList", XboxKeyDictList);
 
             ButtonSettings = new List<JcButtonSetting>(new[]
             {

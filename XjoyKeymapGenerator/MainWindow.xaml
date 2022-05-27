@@ -15,7 +15,20 @@
         <DataGrid ItemsSource="{Binding ButtonSettings}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="JC Button" Binding="{Binding JcKey.Value}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Xbox Button" Binding="{Binding XboxKey.Value}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Xbox Button">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding XboxKey.Value}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{StaticResource XboxKeyDictList}"
+                                      SelectedItem="{Binding XboxKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      DisplayMemberPath="Value"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
