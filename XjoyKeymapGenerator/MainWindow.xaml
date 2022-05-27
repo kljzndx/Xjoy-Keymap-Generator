@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XjoyKeymapGenerator"
         mc:Ignorable="d"
-        Title="Xjoy Keymap Generator by kljzndx" Height="550" Width="400">
+        Title="Xjoy Keymap Generator by kljzndx" Height="680" Width="400">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
