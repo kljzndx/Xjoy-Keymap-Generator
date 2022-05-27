@@ -20,91 +20,94 @@ namespace XjoyKeymapGenerator
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Dictionary<string, string> _jcKeyDict;
-        private Dictionary<string, string> _xboxKeyDict;
-        private List<JcButtonSetting> _buttonSettings;
-
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
 
             InitKeyAssets();
         }
 
+        public List<KeyValuePair<string, string>> JcKeyDictList { get; set; }
+        public List<KeyValuePair<string, string>> XboxKeyDictList { get; set; }
+        public List<JcButtonSetting> ButtonSettings { get; set; }
+
         private void InitKeyAssets()
         {
-            _jcKeyDict = new Dictionary<string, string>();
-            _jcKeyDict["L_DPAD_LEFT"] = "(L) Left";
-            _jcKeyDict["L_DPAD_DOWN"] = "(L) Down";
-            _jcKeyDict["L_DPAD_UP"] = "(L) Up";
-            _jcKeyDict["L_DPAD_RIGHT"] = "(L) Right";
-            _jcKeyDict["L_DPAD_SL"] = "(L) SL";
-            _jcKeyDict["L_DPAD_SR"] = "(L) SR";
-            _jcKeyDict["L_SHOULDER"] = "(L) L";
-            _jcKeyDict["L_TRIGGER"] = "(L) ZL";
-            _jcKeyDict["L_CAPTURE"] = "(L) Capture";
-            _jcKeyDict["L_MINUS"] = "(L) Minus";
-            _jcKeyDict["L_STICK"] = "(L) Stick";
-            _jcKeyDict["R_BUT_A"] = "(R) A";
-            _jcKeyDict["R_BUT_B"] = "(R) B";
-            _jcKeyDict["R_BUT_X"] = "(R) X";
-            _jcKeyDict["R_BUT_Y"] = "(R) Y";
-            _jcKeyDict["R_BUT_SL"] = "(R) SL";
-            _jcKeyDict["R_BUT_SR"] = "(R) SR";
-            _jcKeyDict["R_SHOULDER"] = "(R) R";
-            _jcKeyDict["R_TRIGGER"] = "(R) ZR";
-            _jcKeyDict["R_HOME"] = "(R) Home";
-            _jcKeyDict["R_PLUS"] = "(R) Plus";
-            _jcKeyDict["R_STICK"] = "(R) Stick";
+            var jcKeyDict = new Dictionary<string, string>();
+            jcKeyDict["L_DPAD_LEFT"] = "(L) Left";
+            jcKeyDict["L_DPAD_DOWN"] = "(L) Down";
+            jcKeyDict["L_DPAD_UP"] = "(L) Up";
+            jcKeyDict["L_DPAD_RIGHT"] = "(L) Right";
+            jcKeyDict["L_DPAD_SL"] = "(L) SL";
+            jcKeyDict["L_DPAD_SR"] = "(L) SR";
+            jcKeyDict["L_SHOULDER"] = "(L) L";
+            jcKeyDict["L_TRIGGER"] = "(L) ZL";
+            jcKeyDict["L_CAPTURE"] = "(L) Capture";
+            jcKeyDict["L_MINUS"] = "(L) Minus";
+            jcKeyDict["L_STICK"] = "(L) Stick";
+            jcKeyDict["R_BUT_A"] = "(R) A";
+            jcKeyDict["R_BUT_B"] = "(R) B";
+            jcKeyDict["R_BUT_X"] = "(R) X";
+            jcKeyDict["R_BUT_Y"] = "(R) Y";
+            jcKeyDict["R_BUT_SL"] = "(R) SL";
+            jcKeyDict["R_BUT_SR"] = "(R) SR";
+            jcKeyDict["R_SHOULDER"] = "(R) R";
+            jcKeyDict["R_TRIGGER"] = "(R) ZR";
+            jcKeyDict["R_HOME"] = "(R) Home";
+            jcKeyDict["R_PLUS"] = "(R) Plus";
+            jcKeyDict["R_STICK"] = "(R) Stick";
+            JcKeyDictList=jcKeyDict.ToList();
 
-            _xboxKeyDict = new Dictionary<string, string>();
-            _xboxKeyDict["DISABLE"] = "DISABLE";
-            _xboxKeyDict["XUSB_GAMEPAD_DPAD_LEFT"] = "Left";
-            _xboxKeyDict["XUSB_GAMEPAD_DPAD_DOWN"] = "Down";
-            _xboxKeyDict["XUSB_GAMEPAD_DPAD_UP"] = "Up";
-            _xboxKeyDict["XUSB_GAMEPAD_DPAD_RIGHT"] = "Right";
-            _xboxKeyDict["XUSB_GAMEPAD_A"] = "A";
-            _xboxKeyDict["XUSB_GAMEPAD_B"] = "B";
-            _xboxKeyDict["XUSB_GAMEPAD_X"] = "X";
-            _xboxKeyDict["XUSB_GAMEPAD_Y"] = "Y";
-            _xboxKeyDict["XUSB_GAMEPAD_LEFT_SHOULDER"] = "LB";
-            _xboxKeyDict["XUSB_GAMEPAD_RIGHT_SHOULDER"] = "RB";
-            _xboxKeyDict["XUSB_GAMEPAD_LEFT_TRIGGER"] = "LT";
-            _xboxKeyDict["XUSB_GAMEPAD_RIGHT_TRIGGER"] = "RT";
-            _xboxKeyDict["XUSB_GAMEPAD_LEFT_THUMB"] = "LS";
-            _xboxKeyDict["XUSB_GAMEPAD_RIGHT_THUMB"] = "RS";
-            _xboxKeyDict["XUSB_GAMEPAD_BACK"] = "Back";
-            _xboxKeyDict["XUSB_GAMEPAD_START"] = "Start";
-            _xboxKeyDict["XUSB_GAMEPAD_GUIDE"] = "Logo";
+            var xboxKeyDict = new Dictionary<string, string>();
+            xboxKeyDict["DISABLE"] = "DISABLE";
+            xboxKeyDict["XUSB_GAMEPAD_DPAD_LEFT"] = "Left";
+            xboxKeyDict["XUSB_GAMEPAD_DPAD_DOWN"] = "Down";
+            xboxKeyDict["XUSB_GAMEPAD_DPAD_UP"] = "Up";
+            xboxKeyDict["XUSB_GAMEPAD_DPAD_RIGHT"] = "Right";
+            xboxKeyDict["XUSB_GAMEPAD_A"] = "A";
+            xboxKeyDict["XUSB_GAMEPAD_B"] = "B";
+            xboxKeyDict["XUSB_GAMEPAD_X"] = "X";
+            xboxKeyDict["XUSB_GAMEPAD_Y"] = "Y";
+            xboxKeyDict["XUSB_GAMEPAD_LEFT_SHOULDER"] = "LB";
+            xboxKeyDict["XUSB_GAMEPAD_RIGHT_SHOULDER"] = "RB";
+            xboxKeyDict["XUSB_GAMEPAD_LEFT_TRIGGER"] = "LT";
+            xboxKeyDict["XUSB_GAMEPAD_RIGHT_TRIGGER"] = "RT";
+            xboxKeyDict["XUSB_GAMEPAD_LEFT_THUMB"] = "LS";
+            xboxKeyDict["XUSB_GAMEPAD_RIGHT_THUMB"] = "RS";
+            xboxKeyDict["XUSB_GAMEPAD_BACK"] = "Back";
+            xboxKeyDict["XUSB_GAMEPAD_START"] = "Start";
+            xboxKeyDict["XUSB_GAMEPAD_GUIDE"] = "Logo";
+            XboxKeyDictList = xboxKeyDict.ToList();
 
-            _buttonSettings = new List<JcButtonSetting>(new[]
+            ButtonSettings = new List<JcButtonSetting>(new[]
             {
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_DPAD_LEFT"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_DPAD_LEFT")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_DPAD_DOWN"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_DPAD_DOWN")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_DPAD_UP"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_DPAD_UP")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_DPAD_RIGHT"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_DPAD_RIGHT")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_DPAD_SL"), GetKvp(_xboxKeyDict, "DISABLE")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_DPAD_SR"), GetKvp(_xboxKeyDict, "DISABLE")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_SHOULDER"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_LEFT_SHOULDER")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_TRIGGER"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_LEFT_TRIGGER")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_CAPTURE"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_BACK")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_MINUS"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_BACK")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "L_STICK"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_LEFT_THUMB")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_BUT_A"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_B")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_BUT_B"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_A")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_BUT_X"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_Y")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_BUT_Y"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_X")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_BUT_SL"), GetKvp(_xboxKeyDict, "DISABLE")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_BUT_SR"), GetKvp(_xboxKeyDict, "DISABLE")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_SHOULDER"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_RIGHT_SHOULDER")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_TRIGGER"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_RIGHT_TRIGGER")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_HOME"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_START")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_PLUS"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_START")),
-                new JcButtonSetting(GetKvp(_jcKeyDict, "R_STICK"), GetKvp(_xboxKeyDict, "XUSB_GAMEPAD_RIGHT_THUMB")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_DPAD_LEFT"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_DPAD_LEFT")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_DPAD_DOWN"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_DPAD_DOWN")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_DPAD_UP"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_DPAD_UP")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_DPAD_RIGHT"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_DPAD_RIGHT")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_DPAD_SL"), GetKvp(XboxKeyDictList, "DISABLE")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_DPAD_SR"), GetKvp(XboxKeyDictList, "DISABLE")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_SHOULDER"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_LEFT_SHOULDER")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_TRIGGER"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_LEFT_TRIGGER")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_CAPTURE"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_BACK")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_MINUS"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_BACK")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "L_STICK"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_LEFT_THUMB")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_BUT_A"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_B")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_BUT_B"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_A")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_BUT_X"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_Y")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_BUT_Y"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_X")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_BUT_SL"), GetKvp(XboxKeyDictList, "DISABLE")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_BUT_SR"), GetKvp(XboxKeyDictList, "DISABLE")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_SHOULDER"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_RIGHT_SHOULDER")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_TRIGGER"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_RIGHT_TRIGGER")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_HOME"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_START")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_PLUS"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_START")),
+                new JcButtonSetting(GetKvp(JcKeyDictList, "R_STICK"), GetKvp(XboxKeyDictList, "XUSB_GAMEPAD_RIGHT_THUMB")),
             });
         }
 
-        private KeyValuePair<string, string> GetKvp(Dictionary<string, string> dict, string key)
+        private KeyValuePair<string, string> GetKvp(IEnumerable<KeyValuePair<string, string>> dict, string key)
         {
             return dict.First(d => d.Key == key);
         }
