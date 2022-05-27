@@ -14,7 +14,7 @@
 
         <DataGrid ItemsSource="{Binding ButtonSettings}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="JC Button" Binding="{Binding JcKey.Value}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Joy-Con Button" Binding="{Binding JcKey.Value}" IsReadOnly="True"/>
                 <DataGridTemplateColumn Header="Xbox Button">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
