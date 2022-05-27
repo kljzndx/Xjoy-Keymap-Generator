@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -111,6 +112,16 @@ namespace XjoyKeymapGenerator
         private KeyValuePair<string, string> GetKvp(IEnumerable<KeyValuePair<string, string>> dict, string key)
         {
             return dict.First(d => d.Key == key);
+        }
+
+        private void Save_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Close_Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
