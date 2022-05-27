@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -116,11 +118,20 @@ namespace XjoyKeymapGenerator
 
         private void Save_Button_Click(object sender, RoutedEventArgs e)
         {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = Environment.CurrentDirectory;
+            dialog.FileName = "keymap.yaml";
+            dialog.Filter = "keymap.yaml file|keymap.yaml";
+
+            if (dialog.ShowDialog() != true)
+                return;
+
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("# To disable any button, set \"DISABLE\" to the value");
             ButtonSettings.ForEach(b => stringBuilder.AppendLine(b.ToYaml()));
-            File.WriteAllText("keymap.yaml", stringBuilder.ToString().Trim(), Encoding.UTF8);
-            MessageBox.Show("Save Successfully");
+
+            File.WriteAllText(dialog.FileName, stringBuilder.ToString().Trim(), Encoding.UTF8);
+            MessageBox.Show("Save Successfully" + Environment.NewLine + Environment.NewLine + dialog.FileName);
         }
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
