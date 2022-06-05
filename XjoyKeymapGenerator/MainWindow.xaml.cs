@@ -120,7 +120,7 @@ namespace XjoyKeymapGenerator
             stringBuilder.AppendLine("# To disable any button, set \"DISABLE\" to the value");
             ButtonSettings.ForEach(b => stringBuilder.AppendLine(b.ToYaml()));
 
-            File.WriteAllText(dialog.FileName, stringBuilder.ToString().Trim(), Encoding.UTF8);
+            File.WriteAllText(dialog.FileName, stringBuilder.ToString().Trim(), new UTF8Encoding(false));
             MessageBox.Show("Save Successfully" + Environment.NewLine + Environment.NewLine + dialog.FileName);
         }
 
