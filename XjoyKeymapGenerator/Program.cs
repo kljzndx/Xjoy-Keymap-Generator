@@ -227,7 +227,7 @@ namespace XjoyKeymapGenerator
                 stringBuilder.AppendLine(str);
             string result = stringBuilder.ToString();
 
-            File.WriteAllText("keymap.yaml", result, Encoding.UTF8);
+            File.WriteAllText("keymap.yaml", result, new UTF8Encoding());
             Console.WriteLine("Save successfully");
         }
     }
